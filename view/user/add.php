@@ -14,25 +14,31 @@
     <div class="container">
             <h5 class="text-center text-primary mt-5" >Thêm mới danh sách</h5>
             <form method="post" action="index.php?controller=user&action=add">
-                Tên :
-                <input type="text" name="name" value="" />
-                <br />
-                Giới tính :
-                <input type="text" name="sex" value="" />
-                <br />
-                Tuổi :
-                <input type="text" name="age" value="" />
-                <br />
-                Ngày hiến máu :
-                <input type="text" name="reg_date" value="" />
-                <br />
-                Nhóm máu :
-                <input type="text" name="bgroup" value="" />
-                <br />
-                Số điện thoại :
-                <input type="text" name="phone" value="" />
-                <br />
-                <input type="submit" name="submit" value="Save" />
+            <div class="form-group">
+                <label for="">Họ và tên</label>
+                <input type="text" class="form-control" id="" name="name" placeholder="Nhập họ tên" value="">
+            </div>
+            <div class="form-group">
+                <label for="">Giới tính</label>
+                <input type="text" class="form-control" id="" name="sex" placeholder="" value="">
+            </div>
+            <div class="form-group">
+                <label for="">Tuổi</label>
+                <input type="text" class="form-control" id="" name="age" placeholder="" value="">
+            </div>
+            <div class="form-group">
+                <label for="">Ngày hiến máu</label>
+                <input type="text" class="form-control" id="" name="reg_date" placeholder="" value="">
+            </div>
+            <div class="form-group">
+                <label for="">Nhóm máu</label>
+                <input type="text" class="form-control" id="" name="bgroup" placeholder="" value="">
+            </div>
+            <div class="form-group">
+                <label for="">Số điện thoại </label>
+                <input type="text" class="form-control" id="" name="phone" placeholder="" value="">
+            </div>  
+            <input type="submit" class="bg-primary" name="submit" value="Save" >
             </form>
         </div>
     

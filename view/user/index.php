@@ -14,7 +14,7 @@
     <h5 class="text-center text-primary mt-5" >Danh sách hiến máu</h5>
     
     <div>
-        <a href="index.php?controller=user&action=add" class="btn btn-primary ms-5">Thêm</a>
+        <a href="index.php?controller=user&action=showAdd" class="btn btn-primary ms-5">Thêm</a>
     </div>
     <?php
     include_once  'view/commons/message.php';
@@ -28,7 +28,10 @@
                     <th scope="col">Tên</th>
                     <th scope="col">Ngày đăng kí</th>
                     <th scope="col">Giới tính</th>
-                    <th scope="col">Thay đổi</th>
+                    <th scope="col">Chi tiết</th>
+                    <th scope="col">Sửa</th>
+                    <th scope="col">Xóa</th>
+
                     </tr>
                 </thead>
     <?php
@@ -42,7 +45,6 @@
                     <td><?php echo $user['bd_name']; ?></td>
                     <td><?php echo $user['bd_reg_date']; ?></td>
                     <td><?php echo $user['bd_sex']; ?></td>
-                    <td>
                     <?php
                     //khai báo 3 url xem, sửa, xóa
                     $urlDetail =
@@ -52,14 +54,12 @@
                     $urlDelete =
                         "index.php?controller=user&action=delete&id=" . $user['bd_id'];
                     ?>
-                    <a href="<?php echo $urlDetail?>">Chi tiết</a> &nbsp;
-                    <a href="<?php echo $urlEdit?>"><i class="bi bi-pencil-square"></i></a> &nbsp;
-                    <a onclick="return confirm('Bạn chắc chắn muốn xóa?')"
+                    <td><a href="<?php echo $urlDetail?>">Chi tiết</a> &nbsp;</td>
+                    <td><a href="<?php echo $urlEdit?>"><i class="bi bi-pencil-square"></i></a> &nbsp;</td>
+                    <td><a onclick="return confirm('Bạn chắc chắn muốn xóa?')"
                        href="<?php echo $urlDelete?>">
                        <i class="bi bi-trash"></i>
-                    </a>
-                </td>
-                    
+                    </a></td>   
                 </tr>
                 </tbody>
     <?php

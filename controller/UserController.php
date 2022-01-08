@@ -22,6 +22,7 @@
                 $error = '';
                 //xử lý submit form
                 if (isset($_POST['submit'])) {
+                    
                     $userName = $_POST['name'];
                     $userSex = $_POST['sex'];
                     $userAge = $_POST['age'];
@@ -45,31 +46,31 @@
                             'phone' =>$userPhone
 
                         ];
+                       
                         $isInsert = $userModel->insert($userArr);
+                        
                         if ($isInsert) {
                             $_SESSION['success'] = "Thêm mới thành công";
                         }
                         else {
                             $_SESSION['error'] = "Thêm mới thất bại";
                         }
+                       
                         header("Location: index.php?controller=user&action=index");
                         exit();
                     }
                 }
             }
 
-            function showAdd(){
-               
-                require_once 'view/user/add.php';
-            }
+         function showAdd(){
+            require_once 'view/user/add.php';
+        }
         function edit(){
             // Kiểm tra nếu người dùng nhấn submit
             $error = '';
                 //xử lý submit form
                     $userID = $_GET['id'];
-              
                     $userName = $_POST['name'];
-                    
                     $userSex = $_POST['sex'];
                     $userAge = $_POST['age'];
                     $userBgroup = $_POST['bgroup'];
@@ -77,9 +78,7 @@
                     $userPhone = $_POST['phone'];
                     // Tôi sẽ cần gọi UserModel để truy vấn dữ liệu
                     $userModel = new UserModel();
-                   
-                    
-
+                
                         $userArr = [
                             'id' => $userID,
                             'name' => $userName,
@@ -88,7 +87,6 @@
                             'bgroup' =>$userBgroup,
                             'reg_date' =>$reg_date,
                             'phone' =>$userPhone
-
                         ];
                         $isUpdate = $userModel->update($userArr);
                         if ($isUpdate) {
@@ -97,7 +95,7 @@
                         else {
                             $_SESSION['error'] = "Thêm mới thất bại";
                         }
-                        return;
+                       
                         header("Location: index.php?controller=user&action=index");
                         exit();
             // Nếu ko show ra view UserView/edit.php tương ứng

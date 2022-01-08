@@ -61,10 +61,11 @@
         }
         public function insert($param = []) {
             $connection = $this->connectDb();
+            
             //tạo và thực thi truy vấn
             $queryInsert = "INSERT INTO blood_donor(bd_name,bd_sex,bd_age,bd_reg_date,bd_bgroup,bd_phno) 
-            VALUES('$userName','$userSex','$userAge','$reg_date','$userPhone')";
-            
+            VALUES('{$param['name']}','{$param['sex']}','{$param['age']}','{$param['reg_date']}','{$param['bgroup']}','{$param['phone']}')";
+           
             $isInsert = mysqli_query($connection, $queryInsert);
             $this->closeDb($connection);
     
@@ -73,14 +74,14 @@
         public function update($user = []) {
             $connection = $this->connectDb();
             $queryUpdate = "UPDATE blood_donor
-        SET `bd_name` = '{$user['name']}',
-            `bd_sex` = '{$user['sex']}',
-            `bd_age` = '{$user['age']}',
-            `bd_reg_date` = '{$user['reg_date']}',
-            `bd_bgroup` = '{$user['bgroup']}',
-            `bd_phno` = '{$user['phone']}',
+        SET bd_name = '{$user['name']}',
+            bd_sex = '{$user['sex']}',
+            bd_age = '{$user['age']}',
+            bd_reg_date = '{$user['reg_date']}',
+            bd_bgroup = '{$user['bgroup']}',
+            bd_phno = '{$user['phone']}'
             
-         WHERE `bd_id` = {$user['id']}";
+         WHERE bd_id = {$user['id']}";
          
             $isUpdate = mysqli_query($connection, $queryUpdate);
             var_dump($isUpdate);
